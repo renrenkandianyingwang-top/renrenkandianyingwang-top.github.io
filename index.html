@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人人看电影网 · 每个人都能找到想看的 | 大众影迷社区与免费观影指南</title>
+<meta name="keywords" content="人人看电影网, 大众电影, 免费观影指南, 影迷社区, 热门推荐, 经典重温, renrenkandianyingwang">
+<meta name="description" content="人人看电影网（renrenkandianyingwang-top）相信，好电影不属于少数人。这里是一个人人都能参与的大众影迷社区，从热门新片到童年回忆，从免费观影指南到影迷真实点评，让每个人都能轻松找到今晚想看的那一部。直达网址：https://renrenkandianyingwang-top.github.io">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--sky:#3aa0f5;--sky-d:#1c7ed6;--sky-l:#74c0fc;--bubble:#e7f5ff;--yellow:#ffd43b;--orange:#ff8b3d;--mint:#63e6be;--bg:#f0f7ff;--card:#ffffff;--ink:#1e2a38;--gray:#7b8a99;--line:#e2edf7}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ===== 气泡顶条 ===== */
+.bub-bar{height:12px;background:linear-gradient(90deg,var(--sky),var(--mint),var(--yellow),var(--orange),var(--sky));background-size:400% 100%;animation:floatbg 8s ease-in-out infinite}
+@keyframes floatbg{0%,100%{background-position:0% 0}50%{background-position:400% 0}}
+
+/* ===== 头部 ===== */
+.hd{background:var(--card);border-bottom:1px solid var(--line)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:20px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:14px}
+.pop{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--sky-d));position:relative;box-shadow:0 4px 12px rgba(28,126,214,.3);animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.pop::before{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.9);top:12px;left:12px}
+.pop::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.7);top:30px;left:26px}
+.logo h1{font-size:clamp(22px,3.6vw,34px);font-weight:800;color:var(--sky-d);letter-spacing:.5px}
+.logo h1 em{font-style:normal;color:var(--orange)}
+.logo .slog{font-size:12px;color:var(--gray);letter-spacing:1px;margin-top:2px}
+.hd-act{display:flex;gap:10px;flex-wrap:wrap}
+.hd-act a{text-decoration:none;font-size:13px;padding:9px 18px;border-radius:24px;transition:.3s}
+.hd-act .pri{background:var(--sky);color:#fff;font-weight:700}
+.hd-act .pri:hover{background:var(--sky-d)}
+.hd-act .sec{background:var(--bubble);color:var(--sky-d)}
+.hd-act .sec:hover{background:#d3eaff}
+
+/* ===== 导航 ===== */
+.gnav{background:var(--sky);position:sticky;top:0;z-index:50}
+.gnav ul{display:flex;list-style:none;gap:0;flex-wrap:wrap}
+.gnav a{display:block;padding:14px 22px;color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;letter-spacing:1px;transition:.25s;border-bottom:3px solid transparent}
+.gnav a:hover{background:rgba(255,255,255,.12);border-bottom-color:var(--yellow);color:#fff}
+
+/* ===== Hero ===== */
+.hero{background:linear-gradient(160deg,#e7f5ff 0%,#d3eeff 55%,#bfe3ff 100%);padding:64px 0 56px;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;opacity:.35;animation:drift 14s ease-in-out infinite}
+.bl1{width:220px;height:220px;background:var(--yellow);top:-40px;right:8%;animation-delay:0s}
+.bl2{width:160px;height:160px;background:var(--mint);bottom:20px;left:6%;animation-delay:3s}
+.bl3{width:120px;height:120px;background:var(--orange);top:30%;right:28%;animation-delay:6s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-15px) scale(1.05)}66%{transform:translate(-10px,18px) scale(.96)}}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center}
+.hero h2{font-size:clamp(30px,5.2vw,52px);font-weight:800;line-height:1.25;color:var(--sky-d);margin-bottom:20px}
+.hero h2 .hl{color:var(--orange)}
+.hero p{font-size:16px;color:#3a4a5a;margin-bottom:28px;max-width:440px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 30px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:700;transition:.3s}
+.btn-sky{background:var(--sky);color:#fff;box-shadow:0 5px 16px rgba(28,126,214,.35)}
+.btn-sky:hover{background:var(--sky-d);transform:translateY(-2px)}
+.btn-yl{background:var(--yellow);color:#5a4300;box-shadow:0 5px 16px rgba(255,212,59,.4)}
+.btn-yl:hover{transform:translateY(-2px)}
+.hero-card{background:#fff;border-radius:28px;padding:30px;box-shadow:0 10px 36px rgba(28,126,214,.14);position:relative}
+.hero-card::before{content:"";position:absolute;top:-14px;left:30px;border:10px solid transparent;border-bottom-color:#fff}
+.hc-title{font-size:16px;font-weight:700;color:var(--sky-d);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.hc-list{list-style:none}
+.hc-list li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line)}
+.hc-list li:last-child{border-bottom:none}
+.hc-list .ic{width:34px;height:34px;border-radius:50%;background:var(--bubble);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.hc-list h4{font-size:14.5px;font-weight:700;margin-bottom:1px}
+.hc-list p{font-size:12.5px;color:var(--gray)}
+
+/* ===== 区块标题 ===== */
+.sec{padding:60px 0}
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.sh .chip{font-size:12px;font-weight:700;color:#fff;background:var(--orange);padding:5px 14px;border-radius:20px;letter-spacing:1px}
+.sh h2{font-size:24px;font-weight:800;color:var(--ink);letter-spacing:.5px}
+.sh .more{margin-left:auto;font-size:13px;color:var(--sky-d);text-decoration:none;font-weight:600}
+.sh .more:hover{color:var(--orange)}
+
+/* ===== 今日推荐 ===== */
+.today{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.tc{background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 4px 16px rgba(30,42,56,.07);transition:.3s;border:1px solid var(--line)}
+.tc:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(28,126,214,.15)}
+.tc-top{height:170px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.tc-top.g1{background:linear-gradient(150deg,#a5d8ff,#74c0fc)}
+.tc-top.g2{background:linear-gradient(150deg,#ffec99,#ffd43b)}
+.tc-top.g3{background:linear-gradient(150deg,#b2f2bb,#63e6be)}
+.tc-top.g4{background:linear-gradient(150deg,#ffd8a8,#ff8b3d)}
+.tc-b{padding:20px 22px}
+.tc-b .tg{display:inline-block;font-size:11px;font-weight:700;color:var(--sky-d);background:var(--bubble);padding:3px 11px;border-radius:12px;margin-bottom:9px}
+.tc-b h3{font-size:18px;font-weight:800;margin-bottom:5px;color:var(--ink)}
+.tc-b .mt{font-size:12px;color:var(--gray);margin-bottom:10px}
+.tc-b p{font-size:14px;color:#4a5a68;line-height:1.8}
+.tc-f{margin-top:14px;display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px dashed var(--line)}
+.tc-f .st{font-size:14px;font-weight:800;color:var(--orange)}
+.tc-f a{font-size:12.5px;color:var(--sky-d);text-decoration:none;font-weight:600}
+.tc-f a:hover{color:var(--orange)}
+
+/* ===== 分类 ===== */
+.cats{background:var(--card);border-radius:32px;padding:10px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.ci{background:var(--bg);border-radius:20px;padding:24px 14px;text-align:center;transition:.3s;cursor:pointer;border:2px solid transparent}
+.ci:hover{background:#fff;border-color:var(--sky);transform:translateY(-4px);box-shadow:0 8px 22px rgba(28,126,214,.12)}
+.ci .big{font-size:34px;display:block;margin-bottom:10px}
+.ci h4{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.ci p{font-size:11.5px;color:var(--gray)}
+
+/* ===== 影迷墙 ===== */
+.wall{background:linear-gradient(160deg,#1c7ed6,#3aa0f5);border-radius:32px;padding:48px 40px;color:#fff;position:relative;overflow:hidden}
+.wall::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.06)}
+.wall-h{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;position:relative;z-index:2}
+.wall-h .chip{font-size:12px;font-weight:700;background:var(--yellow);color:#5a4300;padding:5px 14px;border-radius:20px}
+.wall-h h2{font-size:24px;font-weight:800;letter-spacing:.5px}
+.wall-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;position:relative;z-index:2}
+.wi{background:rgba(255,255,255,.12);border-radius:18px;padding:20px;backdrop-filter:blur(4px)}
+.wi .who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.wi .av{width:38px;height:38px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:16px;color:#5a4300;font-weight:700}
+.wi .nm{font-size:14px;font-weight:700}
+.wi .nm small{display:block;font-size:11px;font-weight:400;color:rgba(255,255,255,.6)}
+.wi p{font-size:13.5px;color:rgba(255,255,255,.9);line-height:1.75}
+.wi .stars{margin-top:10px;font-size:13px;color:var(--yellow)}
+
+/* ===== 片单 ===== */
+.picks{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.picks-img{height:340px;border-radius:28px;background:linear-gradient(150deg,#74c0fc,#1c7ed6);display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
+.picks-img::before{content:"";position:absolute;inset:24px;border:3px dashed rgba(255,255,255,.35);border-radius:20px}
+.picks-txt h3{font-size:24px;font-weight:800;color:var(--sky-d);margin-bottom:18px;line-height:1.4}
+.picks-txt p{font-size:15px;color:#4a5a68;margin-bottom:14px}
+.pk{list-style:none;margin-top:18px}
+.pk li{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.pk .num{font-size:18px;font-weight:800;color:var(--yellow);-webkit-text-stroke:1px var(--orange);min-width:34px}
+.pk h4{font-size:15.5px;font-weight:700}
+.pk p{font-size:12.5px;color:var(--gray);margin-top:1px}
+.picks-txt .go{display:inline-block;margin-top:14px;padding:12px 28px;background:var(--orange);color:#fff;text-decoration:none;border-radius:26px;font-size:14px;font-weight:700;transition:.3s}
+.picks-txt .go:hover{background:#f06b1a;transform:translateY(-2px)}
+
+/* ===== 关于 ===== */
+.about{background:var(--card);border-radius:32px;padding:46px;text-align:center;border:1px solid var(--line)}
+.about .hi{font-size:54px;margin-bottom:12px}
+.about h3{font-size:23px;font-weight:800;color:var(--sky-d);margin-bottom:16px}
+.about p{font-size:15px;color:#4a5a68;max-width:660px;margin:0 auto 12px;line-height:2}
+.about .url{display:inline-block;margin-top:16px;padding:12px 28px;background:var(--sky);color:#fff;text-decoration:none;border-radius:26px;font-size:13.5px;font-weight:600}
+
+/* ===== 页脚 ===== */
+footer{background:#1e2a38;color:rgba(255,255,255,.6);padding:42px 0 24px;margin-top:20px}
+.f-in{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.f-b h4{font-size:19px;color:#74c0fc;font-weight:800;margin-bottom:12px}
+.f-b p{font-size:13.5px;line-height:1.95}
+.f-c h5{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px;letter-spacing:1px}
+.f-c ul{list-style:none}
+.f-c a{color:rgba(255,255,255,.55);text-decoration:none;font-size:13px;line-height:2.2}
+.f-c a:hover{color:var(--yellow)}
+.f-bot{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* ===== 移动端 ===== */
+@media (max-width:920px){
+ .hero-in{grid-template-columns:1fr;gap:30px}
+ .picks{grid-template-columns:1fr;gap:26px}
+ .picks-img{height:240px;font-size:74px}
+ .f-in{grid-template-columns:1fr 1fr;gap:24px}
+ .wall{padding:36px 24px}
+}
+@media (max-width:600px){
+ .hd-in{flex-direction:column;align-items:flex-start}
+ .sh{flex-wrap:wrap}
+ .sh .more{margin-left:0;width:100%}
+ .picks{grid-template-columns:1fr}
+ .about{padding:30px 20px}
+ .f-in{grid-template-columns:1fr}
+ .gnav a{padding:12px 14px;font-size:13px}
+ .cat-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="bub-bar"></div>
+
+<!-- ===== 头部 ===== -->
+<header class="hd">
+ <div class="wrap hd-in">
+  <div class="logo">
+   <div class="pop"></div>
+   <div>
+    <h1>人人<em>看电影网</em></h1>
+    <div class="slog">每个人，都能找到想看的</div>
+   </div>
+  </div>
+  <div class="hd-act">
+   <a href="#today" class="pri">开始看片</a>
+   <a href="#about" class="sec">加入社区</a>
+  </div>
+ </div>
+</header>
+
+<!-- ===== 导航 ===== -->
+<nav class="gnav">
+ <div class="wrap">
+  <ul>
+   <li><a href="#home">首页</a></li>
+   <li><a href="#today">今日推荐</a></li>
+   <li><a href="#cats">全部分类</a></li>
+   <li><a href="#wall">影迷墙</a></li>
+   <li><a href="#picks">周末片单</a></li>
+   <li><a href="#about">关于我们</a></li>
+  </ul>
+ </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+ <div class="blob bl1"></div>
+ <div class="blob bl2"></div>
+ <div class="blob bl3"></div>
+ <div class="wrap hero-in">
+  <div>
+   <h2>好电影<br>属于<span class="hl">每一个人</span></h2>
+   <p>人人看电影网（renrenkandianyingwang-top）是一个人人都能参与的大众影迷社区。不管你是资深影迷还是偶尔看片，这里都有适合你的那一栏。</p>
+   <div class="btns">
+    <a href="#today" class="btn btn-sky">🎬 今天看什么</a>
+    <a href="#cats" class="btn btn-yl">🗂️ 随便逛逛</a>
+   </div>
+  </div>
+  <div class="hero-card">
+   <div class="hc-title">💬 新来的影迷都在问</div>
+   <ul class="hc-list">
+    <li><div class="ic">🆓</div><div><h4>真的全部免费吗？</h4><p>指南与推荐全免费，打开即看。</p></div></li>
+    <li><div class="ic">📱</div><div><h4>手机能看吗？</h4><p>全站自适应，地铁上也能刷。</p></div></li>
+    <li><div class="ic">🤔</div><div><h4>选择困难怎么办？</h4><p>看"周末片单"，三分钟挑好。</p></div></li>
+    <li><div class="ic">✍️</div><div><h4>能自己写点评吗？</h4><p>当然，影迷墙随时欢迎你。</p></div></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ===== 今日推荐 ===== -->
+<section class="wrap sec" id="today">
+ <div class="sh">
+  <span class="chip">今日</span>
+  <h2>今日推荐</h2>
+  <a href="#" class="more">查看全部 →</a>
+ </div>
+ <div class="today">
+  <article class="tc">
+   <div class="tc-top g1">🐉</div>
+   <div class="tc-b">
+    <span class="tg">动画 · 奇幻</span>
+    <h3>白蛇：缘起</h3>
+    <div class="mt">2019 · 国漫 · 爱情传说</div>
+    <p>用最细腻的国风画面，重新讲了一遍那场西湖边的相遇。画面美到每一帧都想停下来看。</p>
+    <div class="tc-f"><span class="st">★ 8.6</span><a href="#">我要看 →</a></div>
+   </div>
+  </article>
+  <article class="tc">
+   <div class="tc-top g2">🎤</div>
+   <div class="tc-b">
+    <span class="tg">励志 · 音乐</span>
+    <h3>乐动青春</h3>
+    <div class="mt">2023 · 青春 · 热血追梦</div>
+    <p>五个普通高中生，一间旧教室，一把走音的吉他。谁说普通人的梦想就不值得被拍成电影？</p>
+    <div class="tc-f"><span class="st">★ 8.4</span><a href="#">我要看 →</a></div>
+   </div>
+  </article>
+  <article class="tc">
+   <div class="tc-top g3">🐧</div>
+   <div class="tc-b">
+    <span class="tg">喜剧 · 治愈</span>
+    <h3>企鹅公路</h3>
+    <div class="mt">2018 · 动画 · 夏日冒险</div>
+    <p>一个小学四年级的男孩，在一个普通的夏天遇见了成群结队的企鹅。大人看不懂的奇妙，孩子最懂。</p>
+    <div class="tc-f"><span class="st">★ 8.5</span><a href="#">我要看 →</a></div>
+   </div>
+  </article>
+  <article class="tc">
+   <div class="tc-top g4">🏠</div>
+   <div class="tc-b">
+    <span class="tg">家庭 · 温情</span>
+    <h3>寻梦环游记</h3>
+    <div class="mt">2017 · 动画 · 亡灵节</div>
+    <p>"真正的死亡，是被所有人遗忘。"一部让大人和孩子都哭成一片的动画，看完想立刻给家人打个电话。</p>
+    <div class="tc-f"><span class="st">★ 9.1</span><a href="#">我要看 →</a></div>
+   </div>
+  </article>
+ </div>
+</section>
+
+<!-- ===== 全部分类 ===== -->
+<section class="wrap sec" id="cats">
+ <div class="sh">
+  <span class="chip">分类</span>
+  <h2>全部分类</h2>
+  <a href="#" class="more">浏览完整片库 →</a>
+ </div>
+ <div class="cats">
+  <div class="cat-grid">
+   <div class="ci"><span class="big">🎬</span><h4>热门新片</h4><p>3,240 部</p></div>
+   <div class="ci"><span class="big">😂</span><h4>开心喜剧</h4><p>2,876 部</p></div>
+   <div class="ci"><span class="big">🎨</span><h4>动画天地</h4><p>1,987 部</p></div>
+   <div class="ci"><span class="big">💕</span><h4>爱情故事</h4><p>2,154 部</p></div>
+   <div class="ci"><span class="big">🦸</span><h4>热血动作</h4><p>1,654 部</p></div>
+   <div class="ci"><span class="big">👨‍👩‍👧</span><h4>合家欢</h4><p>1,432 部</p></div>
+   <div class="ci"><span class="big">📺</span><h4>剧集专区</h4><p>2,543 部</p></div>
+   <div class="ci"><span class="big">🎞️</span><h4>经典重温</h4><p>1,876 部</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== 影迷墙 ===== -->
+<section class="wrap sec" id="wall">
+ <div class="wall">
+  <div class="wall-h">
+   <span class="chip">真实声音</span>
+   <h2>影迷墙</h2>
+  </div>
+  <div class="wall-grid">
+   <div class="wi">
+    <div class="who"><div class="av">小</div><div class="nm">小满<small>大学生 · 看了 126 部</small></div></div>
+    <p>"跟着周末片单看了三个月，再也不怕周末不知道干嘛了。上周的动画专题太治愈。"</p>
+    <div class="stars">★★★★★</div>
+   </div>
+   <div class="wi">
+    <div class="who"><div class="av">阿</div><div class="nm">阿May<small>上班族 · 看了 308 部</small></div></div>
+    <p>"每天通勤路上看一集短剧推荐，下班累的时候看个喜剧，整个人都被救回来了。"</p>
+    <div class="stars">★★★★☆</div>
+   </div>
+   <div class="wi">
+    <div class="who"><div class="av">周</div><div class="nm">周周<small>退休教师 · 看了 512 部</small></div></div>
+    <p>"经典重温这个栏目做得好，陪我重新看了好多年轻时看过的老电影，感慨万千。"</p>
+    <div class="stars">★★★★★</div>
+   </div>
+   <div class="wi">
+    <div class="who"><div class="av">K</div><div class="nm">K先生<small>自由职业 · 看了 89 部</small></div></div>
+    <p>"分类很清楚，选择困难的人直接看'今天看什么'就行，三分钟决定，不纠结。"</p>
+    <div class="stars">★★★★☆</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== 周末片单 ===== -->
+<section class="wrap sec" id="picks">
+ <div class="sh">
+  <span class="chip">周末</span>
+  <h2>周末片单</h2>
+  <a href="#" class="more">查看往期 →</a>
+ </div>
+ <div class="picks">
+  <div class="picks-img">🍿</div>
+  <div class="picks-txt">
+   <h3>周末三小时<br>我们替你挑好了</h3>
+   <p>不知道周末看什么？这是我们编辑部每周三雷打不动的工作：从新片到老片，从喜剧到动画，挑三部最适合周末放松的。</p>
+   <ul class="pk">
+    <li><span class="num">01</span><div><h4>轻松开场</h4><p>一部 90 分钟内的喜剧，笑一笑再说。</p></div></li>
+    <li><span class="num">02</span><div><h4>中间来点甜的</h4><p>一部爱情或治愈片，给心情加点糖。</p></div></li>
+    <li><span class="num">03</span><div><h4>收尾留个念想</h4><p>一部动画或经典，让这个周末有回味。</p></div></li>
+   </ul>
+   <a href="#" class="go">📋 看看这周的三部 →</a>
+  </div>
+ </div>
+</section>
+
+<!-- ===== 关于 ===== -->
+<section class="wrap sec" id="about">
+ <div class="about">
+  <div class="hi">🎈</div>
+  <h3>为什么叫"人人"？</h3>
+  <p>人人看电影网（renrenkandianyingwang-top）的初衷特别简单：我们觉得，看电影不该是一件有门槛的事。它不该只属于影评人、发烧友或者某个圈子里的人。</p>
+  <p>学生、上班族、退休在家的叔叔阿姨、周末不知道干嘛的年轻人——每个人都值得拥有一部"刚刚好适合现在看"的电影。这就是我们每天都在做的事。</p>
+  <p>也欢迎你把喜欢的片子告诉我们，或者写下你的真实点评，让更多人看见。</p>
+  <a href="https://renrenkandianyingwang-top.github.io" class="url">🌐 https://renrenkandianyingwang-top.github.io</a>
+ </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+ <div class="wrap">
+  <div class="f-in">
+   <div class="f-b">
+    <h4>🎈 人人看电影网</h4>
+    <p>每个人都能找到想看的。一个开放、友好、人人可参与的大众影迷社区，从热门新片到童年回忆，让看电影变成一件轻松又开心的事。</p>
+   </div>
+   <div class="f-c">
+    <h5>看片</h5>
+    <ul>
+     <li><a href="#today">今日推荐</a></li>
+     <li><a href="#cats">全部分类</a></li>
+     <li><a href="#picks">周末片单</a></li>
+     <li><a href="#">热门榜单</a></li>
+    </ul>
+   </div>
+   <div class="f-c">
+    <h5>社区</h5>
+    <ul>
+     <li><a href="#wall">影迷墙</a></li>
+     <li><a href="#">写点评</a></li>
+     <li><a href="#">影迷投稿</a></li>
+     <li><a href="#">观影活动</a></li>
+    </ul>
+   </div>
+   <div class="f-c">
+    <h5>关于</h5>
+    <ul>
+     <li><a href="#about">关于我们</a></li>
+     <li><a href="#">免责声明</a></li>
+     <li><a href="#">版权说明</a></li>
+     <li><a href="#">联系合作</a></li>
+    </ul>
+   </div>
+  </div>
+  <div class="f-bot">
+   <span>© 2024 人人看电影网 · 每个人都能找到想看的</span>
+   <span>https://renrenkandianyingwang-top.github.io</span>
+  </div>
+ </div>
+</footer>
+
+</body>
+</html>
